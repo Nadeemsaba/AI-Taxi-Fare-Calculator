@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Taxi Fare Estimator</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+     * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #27250f, #433e20, #64602c);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      width: 380px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: rgb(47, 42, 42);
+      outline: none;
+
+      /* width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+      background: white;
+      color: rgb(30, 28, 28); */
+    }
+
+    .btn {
+      background-color: #FFDD3C;
+      background-image: linear-gradient(to right, #ffd000, #ffc800);
+      border: none;
+      color: white;
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .link{
+      color: white;
+    }
+    .btn:hover {
+      background: #FFD400;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="bg-white dark:bg-gray-800 shadow-lg" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0.75rem 1.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div style="font-size: 1.25rem; font-weight: 600; color: white;">
+          <a href="index.html" class="link">AI Taxi</a>
+        </div>
+        <div style="display: flex; gap: 1rem;">
+          <a href="index.html" style="color: white; text-decoration: none; display: flex; align-items: center;"><i class="fas fa-home" style="margin-right: 0.5rem;"></i>Home</a>
+          <a href="#features" style="color: white; text-decoration: none; display: flex; align-items: center;"><i class="fas fa-star" style="margin-right: 0.5rem;"></i>Features</a>
+          <a href="#pricing" style="color: white; text-decoration: none; display: flex; align-items: center;"><i class="fas fa-tags" style="margin-right: 0.5rem;"></i>Pricing</a>
+          <a href="login.html" style="color: white; text-decoration: none; display: flex; align-items: center;"><i class="fas fa-sign-in-alt" style="margin-right: 0.5rem;"></i>Login</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container">
+    <h2><i class="fas fa-taxi"></i> AI Taxi Fare Estimator</h2>
+
+    <div class="form-group">
+      <label for="pickup">Pickup Location</label>
+      <input type="text" id="pickup" placeholder="e.g., Central Park" />
+    </div>
+
+    <div class="form-group">
+      <label for="dropoff">Drop-off Location</label>
+      <input type="text" id="dropoff" placeholder="e.g., JFK Airport" />
+    </div>
+
+    <div class="form-group">
+      <label for="traffic">Traffic Level</label>
+      <select id="traffic">
+        <option value="1">Low</option>
+        <option value="1.2">Medium</option>
+        <option value="1.5">High</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="distance">Distance (km)</label>
+      <input type="number" id="distance" placeholder="e.g., 15.2" />
+    </div>
+
+    <div class="form-group">
+      <label for="duration">Duration (min)</label>
+      <input type="number" id="duration" placeholder="e.g., 30" />
+    </div>
+
+    <button class="btn" onclick="callFareAPI()">Estimate Fare</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    // "API" function to simulate a backend call
+    function estimateFareAPI(pickup, dropoff, distance, duration, trafficLevel) {
+      const baseFare = 3.0;
+      const perKm = 1.8;
+      const perMin = 0.25;
+
+      const fare = (baseFare + (perKm * distance) + (perMin * duration)) * trafficLevel;
+      return {
+        pickup,
+        dropoff,
+        distance,
+        duration,
+        traffic: trafficLevel,
+        estimatedFare: fare.toFixed(2),
+      };
+    }
+
+    function callFareAPI() {
+      const pickup = document.getElementById('pickup').value.trim();
+      const dropoff = document.getElementById('dropoff').value.trim();
+      const distance = parseFloat(document.getElementById('distance').value);
+      const duration = parseFloat(document.getElementById('duration').value);
+      const traffic = parseFloat(document.getElementById('traffic').value);
+
+      if (!pickup || !dropoff || isNaN(distance) || isNaN(duration)) {
+        document.getElementById('result').innerText = "Please fill in all fields correctly.";
+        return;
+      }
+
+      // Simulate API call
+      const response = estimateFareAPI(pickup, dropoff, distance, duration, traffic);
+
+      document.getElementById('result').innerHTML = `
+        From <strong>${response.pickup}</strong> to <strong>${response.dropoff}</strong><br>
+        Distance: ${response.distance} km, Duration: ${response.duration} min<br>
+        Traffic: ${traffic === 1 ? 'Low' : traffic === 1.2 ? 'Medium' : 'High'}<br>
+        <strong>Estimated Fare: $${response.estimatedFare}</strong>
+      `;
+    }
+  </script>
+</body>
+</html>

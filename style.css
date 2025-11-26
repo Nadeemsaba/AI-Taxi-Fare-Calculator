@@ -1,0 +1,53 @@
+/* Dark/Light Theme Toggle */
+.dark {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.light {
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+/* Custom Styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.form-container {
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid #ccc;
+}
+
+.button {
+  background-color: #4f46e5;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #4338ca;
+}
+.text-color{
+  color: #FFF192;
+}
+.developer{
+  color: #ffffff;
+  font-weight: 300;
+  text-shadow: 0px 10px 10px black;
+}
+.contrast{
+
+  filter: saturate(30%);
+}

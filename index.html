@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Taxi Fare Estimator</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 dark:bg-gray-900">
+  <!-- Navigation -->
+  <nav class="bg-white dark:bg-gray-800 shadow-lg">
+    <div class="container mx-auto px-6 py-3">
+      <div class="flex justify-between items-center">
+        <div class="text-xl font-semibold text-gray-800 dark:text-white">
+          <a href="index.html">AI Taxi</a>
+        </div>
+         <div class="flex space-x-4">
+          <a href="index.html" class="text-gray-800 dark:text-white hover:text-red-500"><i class="fas fa-home mr-2"></i>Home</a>
+          <a href="#features" class="text-gray-800 dark:text-white hover:text-yellow-500"><i class="fas fa-star mr-2"></i>Features</a>
+          <a href="#pricing" class="text-gray-800 dark:text-white hover:text-yellow-500"><i class="fas fa-tags mr-2"></i>Pricing</a>
+          <a href="./calculate.html" class="text-gray-800 dark:text-white hover:text-yellow-500"><i class="fas fa-tags mr-2"></i>calculate</a>
+          <a href="./login.html" class="text-gray-800 dark:text-white hover:text-yellow-500"><i class="fas fa-sign-in-alt mr-2"></i>Login</a>
+          <a href="./signup.html" class="text-gray-800 dark:text-white hover:text-yellow-500"><i class="fas fa-user-plus mr-2"></i>Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <div class="relative w-full px-6 py-16">
+    <!-- Background Image -->
+    <img src="taxi.jpg" alt="Taxi Background" class="absolute inset-0 w-full h-full object-cover z-0 contrast" />
+  
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/60 z-10"></div>
+  
+    <!-- Content -->
+    <div class="relative z-20 text-center text-white">
+      <h1 class="text-4xl font-bold mb-4 text-color">Smart Taxi Fare Estimation</h1>
+      <p class="mb-8 developer">Get instant fare estimates powered by AI technology</p>
+  
+      <div class="developer">
+        <p class="font-semibold">Developed by:</p>
+        <p>Nadeem Saba (12325062)</p>
+        <p>Devanjay Sinha (12304899)</p>
+        <p>MD Mehfooz Alam (12316364)</p>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Features Section -->
+  <section id="features" class="bg-white dark:bg-gray-800 py-12">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center text-gray-800 dark:text-white mb-8">Features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded-lg">
+          <i class="fas fa-robot text-4xl text-indigo-500 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">AI-Powered Estimates</h3>
+          <p class="text-gray-600 dark:text-gray-300">Get accurate fare estimates using advanced AI technology</p>
+        </div>
+        <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded-lg">
+          <i class="fas fa-clock text-4xl text-indigo-500 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Real-time Calculation</h3>
+          <p class="text-gray-600 dark:text-gray-300">Instant fare calculations based on current conditions</p>
+        </div>
+        <div class="p-6 bg-gray-100 dark:bg-gray-700 rounded-lg">
+          <i class="fas fa-car text-4xl text-indigo-500 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Multiple Vehicle Options</h3>
+          <p class="text-gray-600 dark:text-gray-300">Choose from various vehicle types for your journey</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-12">
+    <div class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-center text-gray-800 dark:text-white mb-8">Our Pricing</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+          <i class="fas fa-car-side text-4xl text-indigo-500 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Mini</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">Perfect for short trips</p>
+          <p class="text-2xl font-bold text-indigo-500">Starting $10</p>
+        </div>
+        <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+          <i class="fas fa-car-alt text-4xl text-indigo-500 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Sedan</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">Comfortable city travel</p>
+          <p class="text-2xl font-bold text-indigo-500">Starting $15</p>
+        </div>
+        <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+          <i class="fas fa-truck text-4xl text-indigo-500 mb-4"></i>
+          <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">SUV</h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-4">Spacious group travel</p>
+          <p class="text-2xl font-bold text-indigo-500">Starting $20</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-gray-800 py-8">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col space-y-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="text-gray-800 dark:text-white">&copy; 2025 AI Taxi. All rights reserved.</div>
+          <div class="flex space-x-4 mt-4 md:mt-0">
+            <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-500">Privacy Policy</a>
+            <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-500">Terms of Service</a>
+            <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-indigo-500">Contact</a>
+          </div>
+        </div>
+        <div class="text-center text-gray-600 dark:text-gray-300">
+          <p class="font-semibold">Developed by:</p>
+          <p>Nadeem Saba (12325062)</p>
+          <p>Devanjay Sinha (12304899)</p>
+          <p>MD Mehfooz Alam (12316364)</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="gemini-api.js"></script>
+  <script src="script.js"></script>
+  <script src="chatbot.js"></script>
+</body>
+</html>
